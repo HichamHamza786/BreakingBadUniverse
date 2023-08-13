@@ -11,11 +11,11 @@ class MainController extends CoreController
      * @return void
      */
 
-     public function home()
-     {
+    public function home()
+    {
         $charactersList = Character::findAll();
-        $this->show('main-home', [
+        $this->show('main/home', [
             'charactersList' => $charactersList,
         ]);
-     }
+    }
 }

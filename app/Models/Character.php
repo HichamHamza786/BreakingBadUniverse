@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Utils\Database;
+use PDO;
 
 class Character extends CoreModel
 {
@@ -34,7 +35,11 @@ class Character extends CoreModel
     public static function findAll()
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM'
+        $sql = 'SELECT * FROM `character`';
+        $pdoStatement = $pdo->query($sql);
+        $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, Character::class);
+
+        return $results;
     }
 }
 

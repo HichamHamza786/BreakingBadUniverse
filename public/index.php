@@ -24,4 +24,8 @@ $router->map(
     'main-home'
 );
 
+/* Dispatch */
 
+$match = $router->match();
+$dispatcher = new Dispatcher($match, ErrorController::class);
+$dispatcher->dispatch();
